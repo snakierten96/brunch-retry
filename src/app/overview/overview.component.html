@@ -1,3 +1,17 @@
-<p>
-  overview works!
-</p>
+<div class="container" fxLayout="column">
+  
+  <div id="top" fxLayout="row" fxFlex="70">
+    <div fxFlex="33">
+      <app-lineup
+        [lineup]="lineup$ | async"
+        (partyJoined)="_lineupActions.joinLine($event)"
+        (partyLeft)="_lineupActions.leaveLine($event)">
+      </app-lineup>
+    </div>   
+  </div>
+
+  <div id="bottom" fxLayout="row" fxFlex="30">
+    Bottom
+  </div>
+  
+</div>

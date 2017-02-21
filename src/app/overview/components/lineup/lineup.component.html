@@ -1,0 +1,40 @@
+<md-card>
+  <md-card-header>
+    <md-card-title>Parties In Line</md-card-title>
+    <md-card-subtitle>Waiting for Service</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let party of lineup">
+        <span>{{ party.numberOfPeople }}</span>
+        <span>{{ party.partyName }}</span>
+        <button
+          md-icon-button
+          color="warn"
+          (click)="partyLeft.emit({ partyId: party.partyId })">
+          <md-icon>close</md-icon>
+        </button>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+  <md-card-actions>
+    <div ngForm #party="ngForm" fxLayout="row">
+      <md-input-container fxFlex>
+        <input mdInput 
+          type="number" 
+          name="numberOfPeople"
+          ngModel
+          placeholder="Number of People">
+      </md-input-container>
+      <md-input-container fxFlex>
+        <input mdInput 
+          type="text" 
+          name="partyName"
+          ngModel
+          placeholder="Party Name">
+      </md-input-container>
+      <button md-raised-button 
+        color="accent" (click)="partyJoined.emit(party.value)">New Party</button>
+    </div>    
+  </md-card-actions>
+</md-card>
