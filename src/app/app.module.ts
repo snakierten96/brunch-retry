@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { NgReduxModule } from '@angular-redux/store';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OverviewModule } from './overview';
@@ -19,6 +21,7 @@ import { OverviewModule } from './overview';
     HttpModule,
     MaterialModule.forRoot(),
     FlexLayoutModule,
+    NgReduxModule,
     AppRoutingModule,
     OverviewModule,
   ],
