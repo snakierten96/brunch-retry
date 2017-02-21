@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import { NgRedux } from '@angular-redux/store';
+import { Action } from 'redux';
+
+import { PARTY_JOINED, PARTY_LEFT } from '../constants';
+import { IAppState } from '../store';
+import { PartyService } from '../services';
+
+@Injectable()
+export class LineupActions {
+  constructor(private _ngRedux: NgRedux<IAppState>, private _party: PartyService) { }
+
+  joinLine({ numberOfPeople, partyName }) {
+    return this._party.getNextPartyId().then(partyId => {
+      return this._ngRedux.dispatch({
+        type: PARTY_JOINED,
+        palyoad: {
+          partyId: partyId,
+          numberOfPeople,
+          partyName
+        }
+      });
+    });
+  }
+
+  leaveLine({ partyId }) {
+    return this._ngRedux.dispatch({
+      type: PARTY_LEFT,
+      payload: {
+        partyId: parseInt(partyId, 10)
+      }
+    });
+  }
+
+}
