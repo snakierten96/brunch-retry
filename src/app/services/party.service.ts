@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as localStorage from 'store';
+//import * as localStorage from 'store';
+const localStorage = require('store');
 
 @Injectable()
 export class PartyService {

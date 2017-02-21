@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OverviewModule } from './overview';
 
+import { LineupActions, TableActions } from './actions';
+import { PartyService } from './services';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,11 @@ import { OverviewModule } from './overview';
     AppRoutingModule,
     OverviewModule,
   ],
-  providers: [],
+  providers: [
+    LineupActions,
+    TableActions,
+    PartyService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
 
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 
 import { IParty, ITables, IMenu } from '../store';
 import { LineupActions, TableActions } from '../actions';
