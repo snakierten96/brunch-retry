@@ -6,7 +6,8 @@ import * as createLogger from 'redux-logger';
 import {
   IAppState,
   rootReducer,
-  middleware
+  middleware,
+  enhancers
 } from './store';
 
 @Component({
@@ -17,12 +18,17 @@ import {
 export class AppComponent implements OnInit {
   title = 'app works!';
 
-  constructor(private _ngRedux: NgRedux<IAppState>) {
+  constructor(
+    private _ngRedux: NgRedux<IAppState>,
+    devtools: DevToolsExtension) {
+      
     this._ngRedux.configureStore(
       rootReducer,
       {},
-      middleware
+      middleware,
+      devtools.isEnabled() ? [ ...enhancers, devtools.enhancer() ] : []
     );
+    
   }
 
   ngOnInit(): void {

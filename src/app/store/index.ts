@@ -24,3 +24,8 @@ export const middleware = [
     stateTransformer: deimmutify
   })
 ];
+
+// Allow future custom enhancer
+export const enhancers = [
+  
+];
